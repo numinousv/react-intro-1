@@ -1,28 +1,25 @@
 import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
 import Post from './components/Post';
-// import { Plus } from 'lucide-react';
 
 function App() {
-  // Simple posts array - easy to edit!
   const posts = [
     {
       id: 1,
-      title: "First Post",
+      title: "First Post Idk",
       author: "user1",
-      content: "first post idk"
+      content: "First Post Yes"
     },
     {
       id: 2,
-      title: "React Q",
+      title: "React Question",
       author: "beginner",
-      content: "usestate test"
+      content: "Wtf is usestate"
     },
     {
       id: 3,
-      title: "showcase",
+      title: "Project Showcase",
       author: "dev123",
-      content: "observation"
+      content: "wow"
     },
   ];
 
@@ -30,39 +27,40 @@ function App() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      <div className="max-w-6xl mx-auto p-4">
-        <div className="flex gap-8">
-          {/* Main Content */}
-          <div className="flex-1">
-            <h1 className="text-2xl font-bold mb-4">Forum Posts</h1>
-            
-            <button className="mb-6 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-              + New Post
-            </button>
-            
-            {/* Posts List */}
-            <div>
-              {posts.map(post => (
-                <Post
-                  key={post.id}
-                  title={post.title}
-                  author={post.author}
-                  content={post.content}
-                />
-              ))}
-            </div>
-          </div>
+      {/* Centered Container */}
+      <div className="max-w-3xl mx-auto p-4 md:p-6">
+        <div className="bg-white rounded-lg shadow-sm border p-4 md:p-6 mb-6">
+          <h1 className="text-2xl font-bold text-gray-800 mb-2">Forum Posts</h1>
+          <p className="text-gray-600 mb-4">Board</p>
           
-          {/* Sidebar */}
-          <div className="hidden md:block">
-            <Sidebar />
-          </div>
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            + Create New Post
+          </button>
+        </div>
+        
+        {/* Posts List - Centered */}
+        <div className="space-y-4">
+          {posts.map(post => (
+            <Post
+              key={post.id}
+              title={post.title}
+              author={post.author}
+              content={post.content}
+            />
+          ))}
+        </div>
+        
+        {/* Load More */}
+        <div className="mt-8 text-center">
+          <button className="border border-gray-300 hover:bg-gray-50 px-5 py-2 rounded text-gray-700">
+            Load More Posts
+          </button>
         </div>
       </div>
       
       {/* Simple Footer */}
-      <div className="border-t p-4 text-center text-gray-600">
-        <p>Simple Forum © 2024</p>
+      <div className="mt-8 border-t bg-white p-4 text-center text-gray-600">
+        <p>Simple Forum</p>
       </div>
     </div>
   );
